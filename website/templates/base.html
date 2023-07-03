@@ -17,7 +17,7 @@
         <title>{% block title %}Home{% endblock %}</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <button 
                 class="navbar-toggler" 
                 type="button" 
@@ -60,10 +60,11 @@
             {% endfor %}
         {% endif %}
         {% endwith %}
-
-        <div class="container">
-            {% block content %}
-            {% endblock %}
+        <div class="jumbotron vertical-center bg-white">
+            <div class="container">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
         <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
