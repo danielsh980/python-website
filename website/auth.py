@@ -1,11 +1,11 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
 mydb = mysql.connector.connect(
-    host = "107.20.93.40",
+    host = "34.205.154.89",
     user = "admin",
     password = "admin123",
     port = 3306,
@@ -24,12 +24,18 @@ def login():
         pass_from_db = result
         cursor.execute("SELECT * FROM users WHERE username = '%s'"%username)
         user_exists = cursor.fetchall()
-        print(pass_from_db)
+
+        cursor.execute("SELECT * FROM users WHERE username = '%s'"%username)
+        user = cursor.fetchone()
+
         print(len(user_exists))
         if len(user_exists) != 0:
             pass_from_db = result[0]
             if check_password_hash(pass_from_db[0], password):
+                session['loggedin'] = True
+                session['username'] = username
                 flash('Logged in successfully!', category='success')
+                return redirect(url_for('views.home'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else:
@@ -39,7 +45,9 @@ def login():
 
 @auth.route('/logout')
 def logout():
-    return "<p>Logout</p>"
+    session.pop('loggedin', None)
+    session.pop('username', None)
+    return redirect(url_for('auth.login'))
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
