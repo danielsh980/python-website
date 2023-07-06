@@ -1,0 +1,42 @@
+.row {
+    width: 100%;
+    /* margin: 0 auto; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2%;
+    grid-gap: 75px;
+}
+
+.cola {
+    background: white;
+    text-align: center;
+    background-color: transparent;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.img-cola {
+    width: 100px;
+}
+
+.water {
+    background: white;
+    text-align: center;
+    background-color: transparent;
+}
+
+.img-water {
+    width: 40px;
+}
+
+.fanta {
+    background: white;
+    text-align: center;
+    background-color: transparent;
+}
+
+.img-fanta {
+    width: 107px;
+}
