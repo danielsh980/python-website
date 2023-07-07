@@ -16,6 +16,21 @@ mydb = mysql.connector.connect(
 def store():
     return render_template("store.html")
 
+@actions.route('/inventory', methods=['GET'])
+def inventory():
+    user = getUsername()
+    cursor = mydb.cursor()
+    cursor.execute("SELECT cola FROM users WHERE username = '%s'"%user)
+    cola = ((cursor.fetchall())[0])[0]
+    cursor.execute("SELECT water FROM users WHERE username = '%s'"%user)
+    water = ((cursor.fetchall())[0])[0]
+    cursor.execute("SELECT cola FROM users WHERE username = '%s'"%user)
+    fanta = ((cursor.fetchall())[0])[0]
+
+    total = (cola * 6) + (water * 2) + (fanta * 4)
+
+    return render_template("inventory.html", cola=cola, water=water, fanta=fanta, total=total)
+
 @actions.route('/cola', methods=['POST'])
 def buyCola():
     user = getUsername()
