@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}
 {% block content %}
 
+{% if session['loggedin'] %}
 <div class="px-4 py-5 my-5 text-center">
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4"><strong>Choose either the Store to buy items or Inventory to check the items that you and others own.</strong></p>
@@ -10,5 +11,11 @@
       </div>
     </div>
 </div>
-
+{% else %}
+<div class="px-4 py-5 my-5 text-center">
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4"><strong>YOU MUST LOGIN FIRST !</strong></p>
+  </div>
+</div>
+{% endif %}
 {% endblock %}

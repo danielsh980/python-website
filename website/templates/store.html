@@ -2,22 +2,31 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="../static/css/store.css" />
 <div class="row">
-    <div class="cola">
-        <p class="header">Coca-Cola</p>
-        <img src="https://freepngimg.com/thumb/coke/8-2-coca-cola-png-picture.png" class="img-cola"/>
-        <p>Price: 6</p>
-    </div>
+    <form action="/cola" method="POST">
+        <div class="cola">
+            <p class="header">Coca-Cola</p>
+            <img src="https://freepngimg.com/thumb/coke/8-2-coca-cola-png-picture.png" class="img-cola"/>
+            <p>Price: 6</p>
+            <button class="buy-btn" type="submit">BUY</button>
+        </div>
+    </form>
 
-    <div class="water">
-        <p class="header">Water</p>
-        <img src="https://freepngimg.com/thumb/water_bottle/6-2-water-bottle-png-clipart.png" class="img-water"/>
-        <p>Price: 2</p>
-    </div>
+    <form action="/water" method="POST">
+        <div class="water">
+            <p class="header">Water</p>
+            <img src="https://freepngimg.com/thumb/water_bottle/6-2-water-bottle-png-clipart.png" class="img-water"/>
+            <p>Price: 2</p>
+            <button class="buy-btn" type="submit">BUY</button>
+        </div>
+    </form>
 
-    <div class="fanta">
-        <p class="header">Fanta</p>
-        <img src="https://www.pngmart.com/files/22/Fanta-PNG-Isolated-Photo.png" class="img-fanta"/>
-        <p>Price: 4</p>
-    </div>
+    <form action="/fanta" method="POST">
+        <div class="fanta">
+            <p class="header">Fanta</p>
+            <img src="https://www.pngmart.com/files/22/Fanta-PNG-Isolated-Photo.png" class="img-fanta"/>
+            <p>Price: 4</p>
+            <button class="buy-btn" type="submit">BUY</button>
+        </div>
+    </form>
 </div>
 {% endblock %}

@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 auth = Blueprint('auth', __name__)
 
 mydb = mysql.connector.connect(
-    host = "3.84.251.250",
+    host = "54.197.70.177",
     user = "admin",
     password = "admin123",
     port = 3306,
@@ -15,7 +15,9 @@ mydb = mysql.connector.connect(
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        global sesh_user
         username = request.form.get('username')
+        sesh_user = username
         password = request.form.get('password')
 
         cursor = mydb.cursor()
@@ -76,3 +78,7 @@ def sign_up():
             return redirect(url_for('views.home'))
 
     return render_template("sign_up.html")
+
+def getUsername():
+    user = session['username']
+    return user
