@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 auth = Blueprint('auth', __name__)
 
 mydb = mysql.connector.connect(
-    host = "44.203.85.202",
+    host = "54.172.195.249",
     user = "admin",
     password = "admin123",
     port = 3306,
