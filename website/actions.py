@@ -5,7 +5,7 @@ from website.auth import getUsername
 actions = Blueprint('actions', __name__)
 
 mydb = mysql.connector.connect(
-    host = "3.90.184.99",
+    host = "3.87.153.19",
     user = "admin",
     password = "admin123",
     port = 3306,
